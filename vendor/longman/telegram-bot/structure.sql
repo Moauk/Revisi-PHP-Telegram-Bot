@@ -359,3 +359,94 @@ CREATE TABLE IF NOT EXISTS `request_limiter` (
 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Table structure for table `menus`
+--
+
+CREATE TABLE IF NOT EXISTS `menus` (
+  `menuId` int NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `label` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `parentId` int NOT NULL,
+  `numOrder` int NOT NULL,
+  `trustLevel` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`menuId`, `name`, `label`, `parentId`, `numOrder`, `trustLevel`) VALUES
+(1, 'Activar l\'App', 'activar', -1, 1, 0),
+(2, 'Generar Codi 01', 'generar01', 0, 1, 10),
+(3, 'Llistat de nodes', 'llistatnodes01', 0, 2, 20),
+(4, 'Enviar a tots', 'sendAll01', 0, 3, 30),
+(5, 'Opt 4', 'opt4', 0, 4, 40);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `menus`
+--
+ALTER TABLE `menus`
+  ADD PRIMARY KEY (`menuId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `menus`
+--
+ALTER TABLE `menus`
+  MODIFY `menuId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
+--
+-- Table structure for table `submenus`
+--
+
+CREATE TABLE IF NOT EXISTS `submenus` (
+  `menuItem` int NOT NULL,
+  `label` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `text` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nivell` int UNSIGNED DEFAULT NULL,
+  `callback_data` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `submenus`
+--
+
+INSERT INTO `submenus` (`menuItem`, `label`, `text`, `nivell`, `callback_data`) VALUES
+(1, 'activar', 'Opcio 1', 0, 'cd1'),
+(2, 'activar', 'Opcio 2', 0, 'cd2'),
+(5, 'activar', 'Opcio 3', 1, 'cd3'),
+(6, 'activar', 'Opcio 4', 1, 'cd4'),
+(7, 'activar', 'Opcio 5', 2, 'cd5');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `submenus`
+--
+ALTER TABLE `submenus`
+  ADD PRIMARY KEY (`menuItem`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `submenus`
+--
+ALTER TABLE `submenus`
+  MODIFY `menuItem` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+
