@@ -24,7 +24,9 @@ git clone https://github.com/Moauk/Revisi-PHP-Telegram-Bot.git
 
 Crear carpetes /Download, /Upload i /logs
 
-Crear la base de dades i importar el fitxer */vendor/longman/telegram-bot/structure.sql*
+Crear la base de dades del bot i importar el fitxer */vendor/longman/telegram-bot/structure.sql*
+
+Crear la base de dades per la pila i importar el fitxer *01xmStackDB.sql*
 
 Establir les variables d'entorn a *.env*
 

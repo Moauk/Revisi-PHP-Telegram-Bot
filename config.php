@@ -84,9 +84,9 @@ $dotenv->load();
      'stackdb'        => [
         'host'     => '127.0.0.1',
         'port'     => 3306,
-        'user'     => 'dbstackadmin',
-        'password' => '91zdh4wju9wefckf',
-        'database' => '01xmStackDB',
+        'user'     => $_ENV['DB_STACK_USER'],
+        'password' => $_ENV['DB_STACK_PASS'],
+        'database' => $_ENV['DB_STACK_NAME'],
     ],     
 
     // Logging (Debug, Error and Raw Updates)
