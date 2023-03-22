@@ -68,9 +68,7 @@ $dotenv->load();
     ],
 
     // Define all IDs of admin users
-    'admins'       => [
-        77480818,
-    ],
+    'admins'       => explode(',', $_ENV['BOT_ADMINS']),
 
     // Enter your MySQL database credentials
     'mysql'        => [
